@@ -6,10 +6,10 @@
 	"license": "MIT",
 	"private": true,
 	"scripts": {
-		"prod": "NODE_ENV=production webpack --progress && npm run pot",
+		"prod": "cross-env NODE_ENV=production webpack --progress && npm run pot",
 		"dev": "webpack --watch --progress",
 		"clean": "rm -rf assets/build/*",
-		"init": "./bin/init.js && npm run pot",
+		"init": "node ./bin/init.js && npm run pot",
 		"lint:css": "stylelint assets/src/sass/**/*.scss --syntax scss",
 		"lint:js": "eslint assets/src/js/",
 		"lint:php": "./vendor/bin/phpcs",
@@ -20,6 +20,7 @@
 		"prepare": "husky install && npm run init"
 	},
 	"dependencies": {
+		"cross-env": "^7.0.3",
 		"foundation-sites": "^6.6.3",
 		"webfontloader": "^1.6.28"
 	},
